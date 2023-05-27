@@ -42,7 +42,7 @@ const EmailForm = () => {
             <div class="container h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                        <h3 class="text-uppercase text-center mb-5">OTPForm</h3>
+                        <h3 class="text-uppercase text-center mb-5">Email Form</h3>
                         <div class="card">
                             <div class="card-body p-5">
                                 <form onSubmit={handleSubmit}>
