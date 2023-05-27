@@ -7,7 +7,7 @@ const OTPForm = () => {
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
     const email = useParams();
-    console.log("Email in otp  " + email)
+    console.log("Email in otp  " + email.id)
 
     const handleSubmit = (e) => {
          e.preventDefault();
@@ -17,7 +17,7 @@ const OTPForm = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         console.log(otp, email, message)
-        axios.post(`http://localhost:3002/OTPVerify`, { otp })
+        axios.post(`http://localhost:3002/OTPVerify`, { otp, email })
             .then((response) => {
 
                 if (response.status == 200) {
@@ -53,7 +53,7 @@ const OTPForm = () => {
                                             required
                                         />
                                     </div>
-                                    <div class="form-outline mb-4">
+                                    {/* <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example1cg">Message</label>
                                         <input id="form3Example1cg" class="form-control form-control-lg"
                                             type="text"
@@ -61,7 +61,7 @@ const OTPForm = () => {
                                             onChange={(e) => setMessage(e.target.value)}
                                             required
                                         />
-                                    </div>
+                                    </div> */}
                                     <div class="form-outline mb-4">
                                     <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit" onClick={onSubmit}>Submit OTP</button>
                                     </div>

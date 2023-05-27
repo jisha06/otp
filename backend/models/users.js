@@ -2,8 +2,7 @@ const Mongoose = require("mongoose");
 
 const UsersSchema = Mongoose.Schema(
     {
-        email: String,
-        message: String,
+        email: String,      
         otp:Number   
     }
 );

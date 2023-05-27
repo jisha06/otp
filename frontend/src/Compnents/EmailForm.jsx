@@ -28,7 +28,7 @@ const EmailForm = () => {
 
                 }
                 else {
-                    alert(response.status)
+                    alert(response.data.message)
                 }
             })
             .catch((error) => {
@@ -46,22 +46,26 @@ const EmailForm = () => {
                         <div class="card">
                             <div class="card-body p-5">
                                 <form onSubmit={handleSubmit}>
-                                    <label>Email:</label>
-                                    <input
-                                        type="email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
-                                    <label>Message:</label>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example1cg">Email:</label>
+                                        <input id="form3Example1cg" class="form-control form-control-lg"
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                    {/* <label>Message:</label>
                                     <input
                                         type="textbox"
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         required
-                                    />
+                                    /> */}
 
-                                    <button type="submit">Send OTP</button>
+                                    <div class="form-outline mb-4">
+                                        <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit" onClick={onSubmit}>Submit OTP</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

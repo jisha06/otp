@@ -28,7 +28,7 @@ app.post('/addOtp', async (req, res) => {
     const email = req.body.email
     const message = req.body.message
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    const body = { email, message, otp }
+    const body = { email, otp }
     console.log(body)
     try {
         const newUser = new usersModel(body);
@@ -53,7 +53,10 @@ app.post('/addOtp', async (req, res) => {
 //Check otp
 app.post('/OTPVerify', async (req, res) => {
     try {
-      const { otp } = req.body;
+      
+      let otp = req.body.otp
+      let email = req.body.email.id
+      console.log(otp, email)
       const savedOTP = await usersModel.findOne({ otp });
   
       if (savedOTP) {
